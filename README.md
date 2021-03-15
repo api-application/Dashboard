@@ -1,37 +1,497 @@
-## Welcome to GitHub Pages
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+<meta charset="utf-8">
+    
+<script> script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
-You can use the [editor on GitHub](https://github.com/api-application/Dashboard/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+<style>
+* {
+  box-sizing: border-box;
+}
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
 
-### Markdown
+ul li {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block;
+  position: relative;
+}
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+ul li:hover {
+  background-color: #eee;
+}
 
-```markdown
-Syntax highlighted code block
+.close {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  padding: 12px 16px;
+  transform: translate(0%, -50%);
+}
 
-# Header 1
-## Header 2
-### Header 3
+.close:hover {background: #bbb;}
+</style>
 
-- Bulleted
-- List
 
-1. Numbered
-2. List
 
-**Bold** and _Italic_ and `Code` text
 
-[Link](url) and ![Image](src)
-```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
-### Jekyll Themes
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/api-application/Dashboard/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
-### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+<style>
+
+/*the container must be positioned relative:*/
+.custom-select {
+  position: relative;
+  font-family: Arial;
+ 
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+
+.select-selected {
+  background-color: DodgerBlue;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+}
+
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: DodgerBlue;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+</style>
+<style>
+
+
+#mydiv3 {
+  position: absolute;
+  z-index: 9;
+  background-color: #f1f1f1;
+  text-align: center;
+  border: 1px solid #d3d3d3;
+ display: none;
+ 
+}
+
+#mydivheader3 {
+  padding: 10px;
+  cursor: move;
+  z-index: 10;
+  background-color: #2196F3;
+  color: #fff;
+  
+}
+#mydiv1 {
+  position: absolute;
+  z-index: 9;
+  background-color: #f1f1f1;
+  text-align: center;
+  border: 1px solid #d3d3d3;
+  display: none;
+}
+
+#mydivheader1 {
+  padding: 10px;
+  cursor: move;
+  z-index: 10;
+  background-color: #2196F3;
+  color: #fff;
+}
+#mydiv2 {
+  position: absolute;
+  z-index: 9;
+  background-color: #f1f1f1;
+  text-align: center;
+  border: 1px solid #d3d3d3;
+  display: none;
+}
+
+#mydivheader2 {
+  padding: 10px;
+  cursor: move;
+  z-index: 10;
+  background-color: #2196F3;
+  color: #fff;
+}
+
+</style>
+</head>
+<body>
+
+
+<button onclick="next()" id="buttonNext">Create</button>
+<!--surround the select box with a "custom-select" DIV element. Remember to set the width:-->
+<div id="mydiv3">
+
+<div id="mydivheader3">
+  
+  <div class="custom-select" style="width:220px;">
+  <select>
+    
+    <option value="0">Select Area:</option>
+    <option value="1">DOSR 8.9 Meter</option>
+    <option value="2">DOSR Picking</option>
+    <option value="3">DOSR Connections</option>
+    <option value="4">DOSR 3 Meter</option>
+    <option value="5">Bin 2 Bin</option>
+    <option value="6">Connections</option>
+  </select>
+</div>
+</div>
+
+<div class="custom-select" style="width:200px;">
+  
+  <select>
+    <option value="0">Select Name:</option>
+    <option value="1">Catalin</option>
+    <option value="2">Scott</option>
+    <option value="3">Marek</option>
+    <option value="4">Michal</option>
+    <option value="5">Mikolaj</option>
+    
+    
+  </select>
+</div>
+<span class="close">&times;</span>
+<div class="custom-select" style="width:200px;">
+  <select>
+    <option value="0">Select Name:</option>
+    <option value="1">Catalin</option>
+    <option value="2">Scott</option>
+    <option value="3">Marek</option>
+    <option value="4">Michal</option>
+    <option value="5">Mikolaj</option>
+    
+  </select>
+</div>
+
+</div>
+
+<div id="mydiv1">
+<div id="mydivheader1">  
+  <div class="custom-select" style="width:220px;">
+  <select>
+    
+    <option value="0">Select Area:</option>
+    <option value="1">DOSR 8.9 Meter</option>
+    <option value="2">DOSR Picking</option>
+    <option value="3">DOSR Connections</option>
+    <option value="4">DOSR 3 Meter</option>
+    <option value="5">Bin 2 Bin</option>
+    <option value="6">Connections</option>
+  </select>
+</div></div>
+<div class="custom-select" style="width:200px;">
+  <select>
+    <option value="0">Select Name:</option>
+    <option value="1">Catalin</option>
+    <option value="2">Scott</option>
+    <option value="3">Marek</option>
+    <option value="4">Michal</option>
+    <option value="5">Mikolaj</option>
+  </select>
+
+</div>
+<span class="close">&times;</span>
+</div>
+<div id="mydiv2">
+<div id="mydivheader2">  <div class="custom-select" style="width:220px;">
+  <select>
+    
+    <option value="0">Select Area:</option>
+    <option value="1">DOSR 8.9 Meter</option>
+    <option value="2">DOSR Picking</option>
+    <option value="3">DOSR Connections</option>
+    <option value="4">DOSR 3 Meter</option>
+    <option value="5">Bin 2 Bin</option>
+    <option value="6">Connections</option>
+  </select>
+</div></div>
+<div class="custom-select" style="width:200px;">
+  <select>
+    <option value="0">Select Name:</option>
+    <option value="1">Catalin</option>
+    <option value="2">Scott</option>
+    <option value="3">Marek</option>
+    <option value="4">Michal</option>
+    <option value="5">Mikolaj</option>
+  </select>
+</div>
+<span class="close">&times;</span>
+ </div> 
+
+
+
+<script>
+
+
+
+//Make the DIV element draggagle:
+dragElement(document.getElementById("mydiv3"));
+
+dragElement(document.getElementById("mydiv1"));
+dragElement(document.getElementById("mydiv2"));
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+</script>
+
+<script>
+var showing = [1, 0, 0,0,0,0,0,0,0,0,0];
+var questions = ['', 'mydiv1', 'mydiv2','mydiv3'];
+function next() {
+    var qElems = [];
+    for (var i = 0; i < questions.length; i++) {
+        qElems.push(document.getElementById(questions[i]));   
+    }
+    for (var i = 0; i < showing.length; i++) {
+        if (showing[i] == 1) {
+            showing[i] = 0;
+            if (i == showing.length - 1) {
+                document.getElementById("buttonNext").disabled = "disabled";
+            } else {
+                qElems[i + 1].style.display = 'block';
+                showing[i + 1] = 1;
+            }
+            break;
+        }
+    }      
+}
+</script>
+
+<script>
+var x, i, j, l, ll, selElmnt, a, b, c;
+/*look for any elements with the class "custom-select":*/
+x = document.getElementsByClassName("custom-select");
+l = x.length;
+for (i = 0; i < l; i++) {
+  selElmnt = x[i].getElementsByTagName("select")[0];
+  ll = selElmnt.length;
+  /*for each element, create a new DIV that will act as the selected item:*/
+  a = document.createElement("DIV");
+  a.setAttribute("class", "select-selected");
+  a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+  x[i].appendChild(a);
+  /*for each element, create a new DIV that will contain the option list:*/
+  b = document.createElement("DIV");
+  b.setAttribute("class", "select-items select-hide");
+  for (j = 1; j < ll; j++) {
+    /*for each option in the original select element,
+    create a new DIV that will act as an option item:*/
+    c = document.createElement("DIV");
+    c.innerHTML = selElmnt.options[j].innerHTML;
+    c.addEventListener("click", function(e) {
+        /*when an item is clicked, update the original select box,
+        and the selected item:*/
+        var y, i, k, s, h, sl, yl;
+        s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+        sl = s.length;
+        h = this.parentNode.previousSibling;
+        for (i = 0; i < sl; i++) {
+          if (s.options[i].innerHTML == this.innerHTML) {
+            s.selectedIndex = i;
+            h.innerHTML = this.innerHTML;
+            y = this.parentNode.getElementsByClassName("same-as-selected");
+            yl = y.length;
+            for (k = 0; k < yl; k++) {
+              y[k].removeAttribute("class");
+            }
+            this.setAttribute("class", "same-as-selected");
+            break;
+          }
+        }
+        h.click();
+    });
+    b.appendChild(c);
+  }
+  x[i].appendChild(b);
+  a.addEventListener("click", function(e) {
+      /*when the select box is clicked, close any other select boxes,
+      and open/close the current select box:*/
+      e.stopPropagation();
+      closeAllSelect(this);
+      this.nextSibling.classList.toggle("select-hide");
+      this.classList.toggle("select-arrow-active");
+    });
+}
+function closeAllSelect(elmnt) {
+  /*a function that will close all select boxes in the document,
+  except the current select box:*/
+  var x, y, i, xl, yl, arrNo = [];
+  x = document.getElementsByClassName("select-items");
+  y = document.getElementsByClassName("select-selected");
+  xl = x.length;
+  yl = y.length;
+  for (i = 0; i < yl; i++) {
+    if (elmnt == y[i]) {
+      arrNo.push(i)
+    } else {
+      y[i].classList.remove("select-arrow-active");
+    }
+  }
+  for (i = 0; i < xl; i++) {
+    if (arrNo.indexOf(i)) {
+      x[i].classList.add("select-hide");
+    }
+  }
+}
+/*if the user clicks anywhere outside the select box,
+then close all select boxes:*/
+document.addEventListener("click", closeAllSelect);
+</script>
+<script>
+var closebtns = document.getElementsByClassName("close");
+var i;
+
+for (i = 0; i < closebtns.length; i++) {
+  closebtns[i].addEventListener("click", function() {
+    this.parentElement.style.display = 'none';
+  });
+}
+</script>
+
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Metro 4 -->
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
+  </head>
+  <body>
+
+
+
+
+
+   
+    
+    <!-- Metro 4 -->
+    <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
+
+<script>
+
+function selectChangeValue(){
+    var new_value = $.random(1, 4);
+    var select = $("select").data('select');
+
+    console.log("Current value: " + select.val());
+    console.log("New value: " + new_value);
+    select.val(new_value);
+    console.log("Result value: " + select.val());
+}
+
+
+</script>
+
+  </body>
+</html>
