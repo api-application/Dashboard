@@ -422,7 +422,7 @@ xmlhttp.onreadystatechange = function () {
       let name = data[i]["gsx$_cn6ca"]["$t"];
       let age = data[i]["gsx$_cokwr"]["$t"];
       let email = data[i]["gsx$_cpzh4"]["$t"];
-      let email1 = data[i]["gsx$_cre1l"]["$t"];
+      let comments = data[i]["gsx$_cre1l"]["$t"];
 
       document.getElementById("demo").innerHTML +=
         "<tr>" +
@@ -436,7 +436,7 @@ xmlhttp.onreadystatechange = function () {
         email +
         "</td>" +
         "</tr>";
-         email1 +
+        comments +
         "</td>" +
         "</tr>";
     }
