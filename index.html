@@ -1,22 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -435,8 +416,7 @@ $.getJSON(url, function(data) {
   html += '<th>Gender</th>';
   html += '<th>Class Level</th>';
   html += '<th>Home State</th>';
-  html += '<th>Major</th>';
-  html += '<th>Extra Curricular Activity</th>';
+ 
   html += '</tr>';
   
   // loop to build html output for each row
@@ -447,12 +427,11 @@ $.getJSON(url, function(data) {
    */
   for (var i = 0; i < entry.length; i++) {
     html += '<tr>';
-    html += '<td>' + entry[i]['gsx$studentname']['$t'] + '</td>';
-    html += '<td>' + entry[i]['gsx$gender']['$t'] + '</td>';
-    html += '<td>' + entry[i]['gsx$classlevel']['$t'] + '</td>';
-    html += '<td>' + entry[i]['gsx$homestate']['$t'] + '</td>';
-    html += '<td>' + entry[i]['gsx$major']['$t'] + '</td>';
-    html += '<td>' + entry[i]['gsx$extracurricularactivity']['$t'] + '</td>';
+    html += '<td>' + entry[i]['gsx$_cn6ca']['$t'] + '</td>';
+    html += '<td>' + entry[i]['gsx$_cokwr']['$t'] + '</td>';
+    html += '<td>' + entry[i]['gsx$_cpzh4']['$t'] + '</td>';
+    html += '<td>' + entry[i]['gsx$_cre1l']['$t'] + '</td>';
+    
     html += '</tr>';
   }
   html += '</table>';
