@@ -527,8 +527,8 @@ xmlhttp.send();
 
 <script>
   
-  let xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange = function () {
+  let xmlhttp1 = new XMLHttpRequest();
+xmlhttp1.onreadystatechange = function () {
   if (this.readyState == 4 && this.status == 200) {
     let data = JSON.parse(this.responseText).feed.entry;
 
@@ -558,12 +558,12 @@ xmlhttp.onreadystatechange = function () {
   }
 };
 
-xmlhttp.open(
+xmlhttp1.open(
  "GET",
  "https://spreadsheets.google.com/feeds/list/1v-61Fuc6n4DcX6pnnfBOBW78rfCZJV5MFnJpYrUB_Hs/od6/public/values?alt=json",
 true
 );
-xmlhttp.send();
+xmlhttp1.send();
   
   
   </script>
