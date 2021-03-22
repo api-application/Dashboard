@@ -265,7 +265,7 @@ ul li:hover {
             <th>Comments</th>
           </tr>
         </thead>
-        <tbody id="demo"></tbody>
+        <tbody id="demo1"></tbody>
       </table>
 
     </div>
@@ -525,7 +525,51 @@ xmlhttp.send();
   
  <script>
 
+<script>
+  
+  let xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function () {
+  if (this.readyState == 4 && this.status == 200) {
+    let data = JSON.parse(this.responseText).feed.entry;
 
+    let i;
+    for (i = 0; i < data.length; i++) {
+      let name = data[i]["gsx$_cn6ca"]["$t"];
+      let age = data[i]["gsx$_cokwr"]["$t"];
+      let email = data[i]["gsx$_cpzh4"]["$t"];
+      let comments = data[i]["gsx$_cre1l"]["$t"];
+
+      document.getElementById("demo1").innerHTML +=
+        "<tr>" +
+        "<td>" +
+        name +
+        "</td>" +
+        "<td>" +
+        age +
+        "</td>" +
+        "<td>" +
+        email +
+        "</td>" +
+        "<td>" +
+        comments +
+        "</td>" +
+        "</tr>";
+    }
+  }
+};
+
+xmlhttp.open(
+ "GET",
+ "https://spreadsheets.google.com/feeds/list/1v-61Fuc6n4DcX6pnnfBOBW78rfCZJV5MFnJpYrUB_Hs/od6/public/values?alt=json",
+true
+);
+xmlhttp.send();
+  
+  
+  </script>
+  
+  
+ <script>
 
 //Make the DIV element draggagle:
 dragElement(document.getElementById("mydiv3"));
