@@ -12,7 +12,31 @@
 <script> script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 <style>
-* {
+td
+{
+    padding:10px;
+}
+
+tr.odd
+{
+    background-color:#fcfceb;
+}
+
+tr.even
+{
+    background-color:#f0f8ff;
+}
+
+tr.odd.zero
+{
+    background-color:#ff0000;
+}
+tr.even.zero
+{
+    background-color:#cc0000;
+}
+
+    * {
   box-sizing: border-box;
 }
 
@@ -629,7 +653,21 @@ function next() {
     }      
 }
 </script>
+<script>
+    $(document).ready(function(){
+    
+    $("tr.alt:even").addClass("even");
+    $("tr.alt:odd").addClass("odd");
+    $('td.status input').bind('change keyup', function(){
+        var tr=$(this).closest('tr');
+        
+        if ($(this).val()=='Zero') tr.addClass('zero');       
+        else tr.removeClass('zero');
+             
+    }).trigger('change'); // the trigger is to run this action on load
+});
 
+    </Script>
 <script>
 var x, i, j, l, ll, selElmnt, a, b, c;
 /*look for any elements with the class "custom-select":*/
